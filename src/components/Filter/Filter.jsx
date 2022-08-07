@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { filterContact } from '../../redux/Contacts/contacts-slice';
-import s from './Filter.module.css';
+
 
 export default function Filter() {
   const dispatch = useDispatch();
@@ -11,10 +11,9 @@ export default function Filter() {
   };
 
   return (
-    <label className={s.form__label}>
+    <label>
       Find contacts by name
       <input
-        className={s.input}
         type="text"
         name="name"
         value={name}

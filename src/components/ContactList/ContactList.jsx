@@ -20,14 +20,11 @@ export default function ContactList() {
     <ul>
       {getSearchContacts()?.map(({ id, name, number }) => {
         return (
-          <li  key={id}>
+          <li key={id}>
             <p>
-               {name}: {number}
+              {name}: {number}
             </p>
-            <button
-              type="button"
-              onClick={() => handlerDelete(id)}
-            >
+            <button type="button" onClick={() => handlerDelete(id)}>
               Delete
             </button>
           </li>

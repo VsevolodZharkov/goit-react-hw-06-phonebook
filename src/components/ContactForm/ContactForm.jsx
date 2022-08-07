@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 
-export const Form = () => {
+export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
   const contacts = useSelector(state => state.contacts.contacts);
   const dispatch = useDispatch();
 
-  const handleChange = e => {
-    const { name, value } = e.target;
+  const handleChange = event => {
+    const { name, value } = event.target;
     switch (name) {
       case 'name':
         setName(value);
@@ -23,8 +24,8 @@ export const Form = () => {
     }
   };
 
-  const handlerSubmit = e => {
-    e.preventDefault();
+  const handlerSubmit = event => {
+    event.preventDefault();
 
     const repeatCont = contacts?.some(
       elem => elem.name.toLowerCase() === name.toLowerCase()

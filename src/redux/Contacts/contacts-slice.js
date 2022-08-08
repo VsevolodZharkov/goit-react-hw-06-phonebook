@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const defState = {
+const initialState  = {
   contacts: [],
   filter: '',
 };
 
 const contactManager = createSlice({
   name: 'contact',
-  defState,
+  initialState,
   reducers: {
     addContact: (state, action) => {
       state.contacts.push(action.payload);

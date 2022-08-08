@@ -6,18 +6,18 @@ export default function Filter() {
   const dispatch = useDispatch();
   const name = useSelector(state => state.contacts.filter);
 
-  const handlerFilterUsers = e => {
+  const handlerFilter = e => {
     dispatch(filterContact(e.target.value));
   };
 
   return (
     <label>
-      Find contacts by name
+      Find user by name
       <input
         type="text"
         name="name"
         value={name}
-        onChange={handlerFilterUsers}
+        onChange={handlerFilter}
       />
     </label>
   );

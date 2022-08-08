@@ -2,7 +2,7 @@ import { addContact } from '../../redux/Contacts/contacts-slice';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
-
+import { toast } from 'react-toastify';
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -24,14 +24,14 @@ export const ContactForm = () => {
     }
   };
 
-  const handlerSubmit = event => {
+  const onSubmit = event => {
     event.preventDefault();
 
     const repeatCont = contacts?.some(
       elem => elem.name.toLowerCase() === name.toLowerCase()
     );
     if (repeatCont) {
-      alert(`Sorry:( , but ${name} already in contacts`);
+      toast(`Invalid data entry`);
       return;
     }
 
@@ -43,7 +43,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handlerSubmit}>
+    <form onSubmit={onSubmit}>
       <label >
         Name
         <input
